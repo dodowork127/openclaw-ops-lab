@@ -6,10 +6,7 @@
     <title>퇴근까지 레벨업</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Pretendard:wght@400;500;700;800&display=swap"
-      rel="stylesheet"
-    />
+    <link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@400;500;700;800&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="./style.css" />
   </head>
   <body>
@@ -17,7 +14,7 @@
     <main class="app">
       <header class="top">
         <h1>🕹️ 퇴근까지 레벨업</h1>
-        <p>집중할수록 경험치가 쌓입니다. 오늘의 나를 클리어하세요.</p>
+        <p>재미 + 실무를 한 화면에. 오늘 업무를 게임처럼 클리어하세요.</p>
       </header>
 
       <section class="grid">
@@ -29,24 +26,12 @@
             </div>
             <button id="resetBtn" class="ghost">초기화</button>
           </div>
-          <div class="xp-wrap">
-            <div id="xpBar" class="xp-bar"></div>
-          </div>
+          <div class="xp-wrap"><div id="xpBar" class="xp-bar"></div></div>
           <p id="xpText" class="sub">XP 0 / 100</p>
-
           <div class="stats">
-            <div>
-              <span>퇴근까지</span>
-              <strong id="countdown">--:--:--</strong>
-            </div>
-            <div>
-              <span>오늘 완료</span>
-              <strong id="doneCount">0개</strong>
-            </div>
-            <div>
-              <span>연속 집중</span>
-              <strong id="focusStreak">0회</strong>
-            </div>
+            <div><span>퇴근까지</span><strong id="countdown">--:--:--</strong></div>
+            <div><span>완료 태스크</span><strong id="doneCount">0개</strong></div>
+            <div><span>집중 횟수</span><strong id="focusStreak">0회</strong></div>
           </div>
         </article>
 
@@ -58,30 +43,53 @@
             <button id="pauseTimer" class="ghost">일시정지</button>
             <button id="focusDone" class="success">집중 완료 +25XP</button>
           </div>
-          <small>집중 완료 버튼을 누르면 경험치가 지급됩니다.</small>
+          <small>미팅 전 1뽀모, 보고서 전 2뽀모처럼 계획해보세요.</small>
         </article>
 
         <article class="card tasks">
-          <div class="card-title">✅ 오늘의 퀘스트 (최대 3개)</div>
-          <form id="taskForm" class="task-form">
-            <input id="taskInput" maxlength="40" placeholder="예: 제안서 1차 작성" />
-            <button>추가</button>
+          <div class="card-title">✅ 실무 태스크</div>
+          <form id="taskForm" class="task-form-col">
+            <input id="taskInput" maxlength="50" placeholder="예: 주간 보고서 1차 작성" />
+            <div class="row">
+              <select id="priorityInput">
+                <option value="P1">P1 긴급</option>
+                <option value="P2" selected>P2 중요</option>
+                <option value="P3">P3 일반</option>
+              </select>
+              <input id="estimateInput" type="number" min="1" max="8" value="1" />
+              <span class="hint">예상 뽀모</span>
+              <button>추가</button>
+            </div>
           </form>
           <ul id="taskList"></ul>
+        </article>
+
+        <article class="card schedule">
+          <div class="card-title">📅 근무시간 플래너 (09~18)</div>
+          <ul id="scheduleList"></ul>
         </article>
 
         <article class="card missions">
           <div class="card-title">🎯 미션</div>
           <ul>
-            <li id="mission1">[ ] 퀘스트 1개 완료 ( +20XP )</li>
-            <li id="mission2">[ ] 집중 2회 달성 ( +30XP )</li>
-            <li id="mission3">[ ] 오늘 XP 120 이상 ( 보너스 뱃지 )</li>
+            <li id="mission1">[ ] 태스크 2개 완료 ( +20XP )</li>
+            <li id="mission2">[ ] 집중 3회 달성 ( +30XP )</li>
+            <li id="mission3">[ ] P1 1개 완료 ( +40XP )</li>
           </ul>
           <p id="badge" class="badge">배지: 아직 없음</p>
         </article>
+
+        <article class="card briefing">
+          <div class="card-title">🧾 업무 브리핑 생성</div>
+          <textarea id="briefingText" rows="8" readonly></textarea>
+          <div class="row end">
+            <button id="generateBriefing">브리핑 생성</button>
+            <button id="copyBriefing" class="ghost">복사</button>
+          </div>
+          <small id="memeLine">오늘의 밈 코멘트: "칼퇴는 과학이다"</small>
+        </article>
       </section>
     </main>
-
     <script src="./app.js"></script>
   </body>
 </html>
