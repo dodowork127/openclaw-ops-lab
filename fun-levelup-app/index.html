@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>퇴근까지 레벨업</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Pretendard:wght@400;500;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <div class="bg-glow"></div>
+    <main class="app">
+      <header class="top">
+        <h1>🕹️ 퇴근까지 레벨업</h1>
+        <p>집중할수록 경험치가 쌓입니다. 오늘의 나를 클리어하세요.</p>
+      </header>
+
+      <section class="grid">
+        <article class="card hero">
+          <div class="hero-head">
+            <div>
+              <span class="label">현재 상태</span>
+              <h2 id="levelText">Lv.1 루키</h2>
+            </div>
+            <button id="resetBtn" class="ghost">초기화</button>
+          </div>
+          <div class="xp-wrap">
+            <div id="xpBar" class="xp-bar"></div>
+          </div>
+          <p id="xpText" class="sub">XP 0 / 100</p>
+
+          <div class="stats">
+            <div>
+              <span>퇴근까지</span>
+              <strong id="countdown">--:--:--</strong>
+            </div>
+            <div>
+              <span>오늘 완료</span>
+              <strong id="doneCount">0개</strong>
+            </div>
+            <div>
+              <span>연속 집중</span>
+              <strong id="focusStreak">0회</strong>
+            </div>
+          </div>
+        </article>
+
+        <article class="card timer">
+          <div class="card-title">⏱️ 포모도로</div>
+          <div id="timerDisplay" class="timer-display">25:00</div>
+          <div class="timer-btns">
+            <button id="startTimer">시작</button>
+            <button id="pauseTimer" class="ghost">일시정지</button>
+            <button id="focusDone" class="success">집중 완료 +25XP</button>
+          </div>
+          <small>집중 완료 버튼을 누르면 경험치가 지급됩니다.</small>
+        </article>
+
+        <article class="card tasks">
+          <div class="card-title">✅ 오늘의 퀘스트 (최대 3개)</div>
+          <form id="taskForm" class="task-form">
+            <input id="taskInput" maxlength="40" placeholder="예: 제안서 1차 작성" />
+            <button>추가</button>
+          </form>
+          <ul id="taskList"></ul>
+        </article>
+
+        <article class="card missions">
+          <div class="card-title">🎯 미션</div>
+          <ul>
+            <li id="mission1">[ ] 퀘스트 1개 완료 ( +20XP )</li>
+            <li id="mission2">[ ] 집중 2회 달성 ( +30XP )</li>
+            <li id="mission3">[ ] 오늘 XP 120 이상 ( 보너스 뱃지 )</li>
+          </ul>
+          <p id="badge" class="badge">배지: 아직 없음</p>
+        </article>
+      </section>
+    </main>
+
+    <script src="./app.js"></script>
+  </body>
+</html>
