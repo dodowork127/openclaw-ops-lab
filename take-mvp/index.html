@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TAKE MVP - 약복용 관리자</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <main class="app">
+      <h1>💊 TAKE MVP</h1>
+      <p class="sub">복용 등록/체크/누락 확인/일일 요약</p>
+
+      <section class="card">
+        <h2>약 등록</h2>
+        <form id="medForm" class="row">
+          <input id="name" placeholder="약 이름 (예: 비타민D)" required />
+          <input id="time" type="time" required />
+          <select id="cycle">
+            <option value="daily">매일</option>
+            <option value="weekdays">평일</option>
+          </select>
+          <button>추가</button>
+        </form>
+      </section>
+
+      <section class="card">
+        <h2>오늘 복용 체크</h2>
+        <ul id="todayList"></ul>
+      </section>
+
+      <section class="card">
+        <h2>오늘 요약</h2>
+        <pre id="summary"></pre>
+        <button id="copySummary" class="ghost">요약 복사</button>
+      </section>
+    </main>
+    <script src="./app.js"></script>
+  </body>
+</html>
