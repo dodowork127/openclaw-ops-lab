@@ -1,0 +1,12 @@
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#0b1020;color:#eef3ff;margin:0}
+.app{max-width:900px;margin:0 auto;padding:24px}
+.sub{color:#9fb0d6}
+.card{background:#151c33;border:1px solid #2a355f;border-radius:12px;padding:16px;margin:14px 0}
+.row{display:flex;gap:8px;flex-wrap:wrap}
+input,select,button{padding:10px;border-radius:8px;border:1px solid #32406f;background:#0f152a;color:#eef3ff}
+button{cursor:pointer;background:#4dd3ff;color:#071426;border:0;font-weight:700}
+button.ghost{background:#243156;color:#e8f0ff;border:1px solid #3c4f86}
+ul{list-style:none;padding:0;margin:0}
+li{display:flex;justify-content:space-between;gap:10px;align-items:center;padding:10px;background:#0f152a;border:1px solid #2b3963;border-radius:10px;margin-bottom:8px}
+.bad{color:#ff9e9e}.good{color:#98f0b3}
+pre{white-space:pre-wrap;background:#0f152a;padding:12px;border-radius:10px;border:1px solid #2b3963}
