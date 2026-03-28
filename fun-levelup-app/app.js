@@ -156,13 +156,30 @@ $('triggerEvent').addEventListener('click', () => {
   save(); render();
 });
 
-$('generateBriefing').addEventListener('click', () => {
-  const type = $('briefTemplate').value;
+function buildBriefing(type){
   const done = state.tasks.filter(t => t.done).map(t => `${t.priority} ${t.text}`).join(', ') || '없음';
   const left = state.tasks.filter(t => !t.done).map(t => `${t.priority} ${t.text}`).join(', ') || '없음';
   const base = { done, left, pomo: state.weekly.pomo, stress: state.stress };
-  const text = templates(type, base);
-  $('briefingText').value = text;
+  return templates(type, base);
+}
+
+function chooseTemplateByContext(){
+  const now = new Date();
+  const hour = now.getHours();
+  if (hour >= 17) return 'eod';
+  if (state.stress >= 70 || state.tasks.some(t => !t.done && t.priority === 'P1')) return 'manager';
+  return 'review';
+}
+
+$('autoBriefing').addEventListener('click', () => {
+  const type = chooseTemplateByContext();
+  $('briefTemplate').value = type;
+  $('briefingText').value = buildBriefing(type);
+});
+
+$('generateBriefing').addEventListener('click', () => {
+  const type = $('briefTemplate').value;
+  $('briefingText').value = buildBriefing(type);
 });
 
 function templates(type, d){
